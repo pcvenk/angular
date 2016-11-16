@@ -1,0 +1,48 @@
+<div class="col-md-6 col-md-offset-3">
+    <p>This is the partial for view 1.</p>
+    <form class="padding">
+        <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="text"
+                   id="firstName"
+                   class="form-control"
+                   ng-model="user.firstName"
+                   placeholder="first name">
+
+            <label for="lastName">Last Name:</label>
+            <input type="text"
+                   id="lastName"
+                   class="form-control"
+                   ng-model="user.lastName"
+                   placeholder="last name">
+
+            <div class="radio">
+                <label>
+                    <input type="radio"
+                           ng-model="user.gender"
+                           name="optradio"
+                           value="Male"
+                           ng-click="style={color:'blue', fontSize: '45px', textAlign: 'center'}">Male</label>
+            </div>
+
+            <div class="radio">
+                <label>
+                    <input type="radio"
+                           ng-model="user.gender"
+                           name="optradio"
+                           value="Female"
+                           ng-click="style={color:'red', fontSize: '45px', textAlign: 'center'}">Female</label>
+            </div>
+        </div>
+    </form>
+
+    <br>
+    <div class="section-wrapper">
+        <h2 ng-style="style">Welcome, {{user.firstName + ' ' + user.lastName}}</h2>
+    </div>
+
+    <br>
+    <div class="btn btn-block btn-primary"
+         ng-disabled="!(user.firstName.length && user.lastName.length)"
+         ng-click="signUp()">Signup</div>
+</div>

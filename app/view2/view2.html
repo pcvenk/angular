@@ -1,0 +1,39 @@
+<div class="col-md-6 col-md-offset-3">
+    <form class="padding">
+        <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="text"
+                   id="firstName"
+                   class="form-control"
+                   ng-model="president.firstName">
+            <br>
+            <label for="lastName">Last Name:</label>
+            <input type="text"
+                   id="lastName"
+                   class="form-control"
+                   ng-model="president.lastName">
+        </div>
+    </form>
+    <br>
+    <div class="btn btn-primary btn-block"
+         ng-disabled="!(president.firstName.length && president.lastName.length)"
+         ng-click="add()">Add
+    </div>
+    <br>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Last Name</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="president in presidents | orderBy: 'lastName'">
+                <td>{{president.firstName}}</td>
+                <td>{{president.lastName}}</td>
+                <td><button class="btn btn-danger btn-xs" ng-click="$parent.remove(president)">Remove</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
